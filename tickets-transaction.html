@@ -86,7 +86,7 @@
           <!-- ACC HEADER -->
           <h2 class="accordion-header">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#acc-table-ongoing" aria-expanded="true" aria-controls="acc-table-ongoing">
-              <div class="text-primary fw-bold">On-Process Tickets</div>
+              <div class="text-dark fw-bold">On-Process Tickets</div>
             </button>
           </h2>
            <!-- ACC BODY -->
@@ -371,7 +371,118 @@
        </div>
      </section>  
 
-     <div class="divider my-1"></div>          
+     <div class="divider my-1"></div>
+     <!-- ------------------- -->
+      <!-- TRANSACTIONAL MODAL -->
+      <!-- ------------------- -->
+      <div class="modal fade " id="viewTicketModal" tabindex="-1" aria-labelledby="view-ticket-label" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+
+            <div class="modal-header bg-warning" id="modal-header">
+              <h1 class="modal-title fs-5" id="view-ticket-label">Ticket Details for <span class="fw-bold" id="modal-ticket-no">TIX-20231006 [On Going]</span></h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!-- Modal Body -->
+            <div class="modal-body">
+              <div class="container">
+                <form class="requires-validation" novalidate>
+                  <div class="row">
+
+                    <!-- CATEGORY -->
+                    <label for="category" class="col-form-label col-2 fw-bold text-end">Category:</label>
+                    <div class="col-4">
+                      <input type="text" class="form-control form-control-sm" name="category" id="category" value="Hardware Support" disabled required>
+                      <div class="invalid-feedback">This field is required.</div>
+                    </div>
+                    
+                    <!-- STATUS -->
+                    <label for="category" class="col-form-label col-2 fw-bold text-end">Status:</label>
+                    <div class="col-4">
+                      <input type="text" class="form-control form-control-sm text-bg-warning" name="field-status" id="field-status" value="On Going" disabled required>
+                    </div>
+
+                    <!-- TITLE -->
+                    <label for="request-title" class="col-form-label col-2 fw-bold text-end">Request Title:</label>
+                    <div class="col-10">
+                      <textarea class="form-control form-control-sm" name="request-title" id="request-title" rows="1" disabled required>Additional Module Access</textarea>
+                      <div class="invalid-feedback">
+                        This field is required.
+                      </div>
+                    </div>
+
+                    <!-- DESCRIPTION -->
+                    <label for="ticket-description" class="col-form-label col-2 fw-bold text-end">Ticket Description:</label>
+                    <div class="col-10">
+                      <textarea class="form-control form-control-sm mb-2" name="ticket-description" id="ticket-description" rows="3" disabled required>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi esse provident mollitia aut illum perspiciatis hic sint similique consequuntur, odio aspernatur impedit excepturi praesentium architecto, voluptates dolore voluptas dolores dicta!</textarea>
+                      <div class="invalid-feedback">
+                        This field is required.
+                      </div>
+                    </div>
+
+                    <!-- DATE CREATED -->
+                    <label for="date-created" class="col-form-label col-2 fw-bold text-end">Date Created:</label>
+                    <div class="col-4">
+                      <input type="date" class="form-control form-control-sm" name="date-created" id="date-created" value="2023-10-10" disabled >
+                    </div>
+
+                    <!-- TARGET DATE -->
+                    <label for="target-date" class="col-form-label col-2 fw-bold text-end">Target Date:</label>
+                    <div class="col-4">
+                      <input type="date" class="form-control form-control-sm" name="target-date" id="target-date" value="2023-10-15" disabled required>
+                      <div class="invalid-feedback">
+                        This field is required.
+                      </div>
+                    </div>
+
+                    <!-- REQUESTED BY -->
+                    <label for="requested-by" class="col-form-label col-2 fw-bold text-end">Requested By:</label>
+                    <div class="col-4">
+                      <input type="text" class="form-control form-control-sm" name="requested-by" id="requested-by" value="John Doe" disabled required>
+                      <div class="invalid-feedback">
+                        This field is required.
+                      </div>
+                    </div>
+
+                    <!-- ASSIGNED TO -->
+                    <label for="assigned-to" class="col-form-label col-2 fw-bold text-end">Assigned To:</label>
+                    <div class="col-4">
+                      <input type="text" class="form-control form-control-sm" name="assigned-to" id="assigned-to" value="John Michael De Vera" disabled>
+                    </div>
+
+                    <!-- DEPARTMENT -->
+                    <label for="department" class="col-form-label col-2 fw-bold text-end">Department:</label>
+                    <div class="col-4">
+                      <input type="text" class="form-control form-control-sm" name="department" id="department" value="Sales Department" disabled required>
+                      <div class="invalid-feedback">
+                        Please add your department.This field is required.
+                      </div>
+                    </div>
+
+                    <!-- DATE COMPLETED -->
+                    <label for="date-completed" class="col-form-label col-2 fw-bold text-end">Date Completed:</label>
+                    <div class="col-4">
+                      <input type="text" class="form-control form-control-sm" name="date-completed" id="date-completed" value="-" disabled>
+                    </div>
+                  </div>
+
+                  
+                </form>  
+              </div>
+            </div>
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-warning d-none" id="modal-btn-process"  data-bs-dismiss="modal">Process Ticket</button>
+              <button type="button" class="btn btn-success d-none" id="modal-btn-complete" data-bs-dismiss="modal">Complete Ticket</button>
+              <button type="button" class="btn btn-success d-none" id="modal-btn-save" data-bs-dismiss="modal">Save</button>
+              <button type="button" class="btn btn-primary d-none" id="modal-btn-create">Create Ticket</button>
+              
+            </div>
+
+          </div>
+        </div>
+      </div>
     <script src="bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
 </body>
 </html>
