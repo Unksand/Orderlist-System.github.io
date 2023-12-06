@@ -18,53 +18,54 @@
 </head>
 <body>
     <div class=" container-fluid my-3 mx-2 ">
-        <div class="display-3 fw-bold text-center text-decoration-underline mb-3"> Ticketing System</div>
+        <div class="bi-pc-display display-3 fw-bold text-center mb-3">Order List System</div>
         
         
         <div class="row">    
-            <!-- Completed Card -->
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="card bg-success text-light text-center">
-                <div class="card-header fs-4">Completed</div>
-                <div class="d-flex align-items-center justify-content-around py-1">
-                    <i class="bi bi-bag-check-fill fs-1 text-light"></i>
-                    <h2 class="fw-bold fs-1">3</h2>
-                </div>
-                </div>
-            </div>           
-            <!-- On Process Card -->
+                 
+            <!-- To Pack Card -->
                 <div class="col-12 col-md-6 col-lg-3">
                 <div class="card text-center text-light bg-warning">
-                <div class="card-header fs-4">On Process</div>
-                <div class="d-flex align-items-center justify-content-around py-1 border border-1 border-warning">
-                    <i class="bi bi-pen-fill fs-1 text-light"></i>
-                    <h2 class="fw-bold fs-1">5</h2>
+                <div class="card-header fs-4">To Pack</div>
+                <div class="d-flex align-items-center justify-content-around py-3 border border-1 border-warning">
+                    <i class="bi bi-archive-fill fs-1 text-light"></i>
+                    <h2 class="fw-bold fs-1">6</h2>
                 </div>
                     
                 </div>   
             </div> 
-            <!-- On Queue -->
+            <!-- To Deliver Card -->
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card bg-info-subtle text-light text-center">
-                <div class="card-header fs-4">On Queue</div>
-                <div class="d-flex align-items-center justify-content-around py-1">
-                    <i class="bi bi-list-task fs-1 text-light"></i>
-                    <h2 class="fw-bold fs-1">3</h2>
+                <div class="card-header fs-4">To Delivered</div>
+                <div class="d-flex align-items-center justify-content-around py-3">
+                    <i class="bi bi-truck fs-1 text-light"></i>
+                    <h2 class="fw-bold fs-1">5</h2>
                 </div>
                 </div>
             </div>
-                <!-- Overdue  -->
+            <!-- Completed Card -->
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="card bg-success text-light text-center">
+              <div class="card-header fs-4">Completed</div>
+              <div class="d-flex align-items-center justify-content-around py-3">
+                  <i class="bi bi-bag-check-fill fs-1 text-light"></i>
+                  <h2 class="fw-bold fs-1">3</h2>
+              </div>
+              </div>
+          </div>      
+                <!-- Delayed Card -->
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card bg-danger text-light text-center">
-                <div class="card-header fs-4">Overdue</div>
-                <div class="d-flex align-items-center justify-content-around py-1">
+                <div class="card-header fs-4">Delayed</div>
+                <div class="d-flex align-items-center justify-content-around py-3">
                     <i class="bi bi-person-exclamation fs-1 text-light"></i>
-                    <h2 class="fw-bold fs-1">9</h2>
+                    <h2 class="fw-bold fs-1">4</h2>
                 </div>
                 </div>
             </div>
             
-           
+          
             
             
         </div>
@@ -86,7 +87,7 @@
           <!-- ACC HEADER -->
           <h2 class="accordion-header">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#acc-table-ongoing" aria-expanded="true" aria-controls="acc-table-ongoing">
-              <div class="text-dark fw-bold">On-Process Tickets</div>
+              <div class="text-dark fw-bold">To Pack Orders</div>
             </button>
           </h2>
            <!-- ACC BODY -->
@@ -96,12 +97,12 @@
               <table class="table table-striped table-responsive-md table-sm table-hover">
                 <thead class="table-dark">
                   <tr>
-                    <th scope="col">Ticket No</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Requested By</th>
-                    <th scope="col">Department</th>
-                    <th scope="col">Date Requested</th>
-                    <th scope="col">Target Date</th>
+                    <th scope="col">Order No</th>
+                    <th scope="col">Seller Store</th>
+                    <th scope="col">Costumer Name</th>
+                    <th scope="col">Order Type</th>
+                    <th scope="col">Order Date Placed</th>
+                    <th scope="col">Target Delivery Date</th>
                     <th scope="col">Category</th>
                     <th scope="col">Status</th>
                     <th scope="col">Action</th>
@@ -109,58 +110,58 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th class="align-middle" scope="row">TIX-20231019</th>
-                        <td class="align-middle">Transfer of PC</td>
-                        <td class="align-middle">John Doe</td>
-                        <td class="align-middle">Sales Department</td>
-                        <td class="align-middle">2023-10-19</td>
-                        <td class="align-middle">2023-10-23</td>
-                        <td class="align-middle">Hardware Support</td>
-                        <td class="align-middle"><span class="badge rounded-pill text-bg-warning">On Process</span></td>
+                        <th class="align-middle" scope="row">OR-20231001</th>
+                        <td class="align-middle">TRN Offical Store</td>
+                        <td class="align-middle">Gerald Adams</td>
+                        <td class="align-middle">Cash On Delivery</td>
+                        <td class="align-middle">2023-03-11</td>
+                        <td class="align-middle">2023-03-18</td>
+                        <td class="align-middle">Electronics</td>
+                        <td class="align-middle"><span class="badge rounded-pill text-bg-warning">To Pack</span></td>
                         <td class="align-middle"><button class="btn btn-info " data-bs-toggle="modal" data-bs-target="#viewTicketModal">view</button></td>
                     </tr>
                     <tr>
-                        <th class="align-middle" scope="row">TIX-20231020</th>
-                        <td class="align-middle">Additional Module Access</td>
+                        <th class="align-middle" scope="row">OR-20231002</th>
+                        <td class="align-middle">Samsung Offical Store</td>
                         <td class="align-middle">Rick Shaw</td>
-                        <td class="align-middle">HR Department</td>
-                        <td class="align-middle">2023-10-20</td>
-                        <td class="align-middle">2023-10-27</td>
-                        <td class="align-middle">Access Elevation</td>
-                        <td class="align-middle"><span class="badge rounded-pill text-bg-warning">On Process</span></td>
+                        <td class="align-middle">Paid Delivery</td>
+                        <td class="align-middle">2023-04-01</td>
+                        <td class="align-middle">2023-04-07</td>
+                        <td class="align-middle">Electronics</td>
+                        <td class="align-middle"><span class="badge rounded-pill text-bg-warning">To Pack</span></td>
                         <td class="align-middle"><button class="btn btn-info " data-bs-toggle="modal" data-bs-target="#viewTicketModal">view</button></td>
                     </tr>
                     <tr>
-                        <th class="align-middle" scope="row">TIX-20231022</th>
-                        <td class="align-middle">PC Problem</td>
-                        <td class="align-middle">Erika Weltz</td>
-                        <td class="align-middle">HR Department</td>
-                        <td class="align-middle">2023-10-22</td>
-                        <td class="align-middle">2023-10-26</td>
-                        <td class="align-middle">Hardware Support</td>
-                        <td class="align-middle"><span class="badge rounded-pill text-bg-warning">On Process</span></td>
+                        <th class="align-middle" scope="row">OR-20231016</th>
+                        <td class="align-middle">Habibi.ph</td>
+                        <td class="align-middle">John Davis</td>
+                        <td class="align-middle">Cash On Delivery</td>
+                        <td class="align-middle">2023-06-22</td>
+                        <td class="align-middle">2023-06-29</td>
+                        <td class="align-middle">Clothing</td>
+                        <td class="align-middle"><span class="badge rounded-pill text-bg-warning">To Pack</span></td>
                         <td class="align-middle"><button class="btn btn-info " data-bs-toggle="modal" data-bs-target="#viewTicketModal">view</button></td>
                     </tr>
                     <tr>
-                        <th class="align-middle" scope="row">TIX-20231004</th>
-                        <td class="align-middle">New Report</td>
-                        <td class="align-middle">Sam Son</td>
-                        <td class="align-middle">Accounting Department</td>
-                        <td class="align-middle">2023-10-04</td>
-                        <td class="align-middle">2023-10-10</td>
-                        <td class="align-middle">Software Module</td>
-                        <td class="align-middle"><span class="badge rounded-pill text-bg-warning me-1">On Process</span><span class="badge rounded-pill text-bg-danger">Overdue</span></td>
+                        <th class="align-middle" scope="row">OR-20231064</th>
+                        <td class="align-middle">Doss Store</td>
+                        <td class="align-middle">Rick Yolo</td>
+                        <td class="align-middle">Paid Delivery</td>
+                        <td class="align-middle">2023-05-19</td>
+                        <td class="align-middle">2023-05-24</td>
+                        <td class="align-middle">Electronics</td>
+                        <td class="align-middle"><span class="badge rounded-pill text-bg-warning me-1">To Pack</span><span class="badge rounded-pill text-bg-danger">Delayed</span></td>
                         <td class="align-middle"><button class="btn btn-info " data-bs-toggle="modal" data-bs-target="#viewTicketModal">view</button></td>
                     </tr>
                     <tr>
-                        <th class="align-middle" scope="row">TIX-20231010</th>
-                        <td class="align-middle">Bug Detected</td>
-                        <td class="align-middle">Julie Davis</td>
-                        <td class="align-middle">Accounting Department</td>
+                        <th class="align-middle" scope="row">OR-20231035</th>
+                        <td class="align-middle">Tailee Offical Store</td>
+                        <td class="align-middle">Sam Atoms</td>
+                        <td class="align-middle">Charge Delivery</td>
                         <td class="align-middle">2023-10-10</td>
                         <td class="align-middle">2023-10-16</td>
-                        <td class="align-middle">Software Module</td>
-                        <td class="align-middle"><span class="badge rounded-pill text-bg-warning me-1">On Process</span><span class="badge rounded-pill text-bg-danger">Overdue</span></td>
+                        <td class="align-middle">Electronics</td>
+                        <td class="align-middle"><span class="badge rounded-pill text-bg-warning me-1">To Pack</span><span class="badge rounded-pill text-bg-danger">Delayed</span></td>
                         <td class="align-middle"><button class="btn btn-info " data-bs-toggle="modal" data-bs-target="#viewTicketModal">view</button></td>
                     </tr>
                 </tbody>
@@ -171,13 +172,13 @@
 </section>  
 
 <div class="divider my-1"></div>
-          <!-- On Queue Table -->
+          <!-- To Deliver Table -->
  <section class="accordion container-fluid" id="accordion-table-onqueue">
         <div class="accordion-item acc-secondary">
           <!-- Accordion Header-->
           <h2 class="accordion-header">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#acc-table-onqueue" aria-expanded="true" aria-controls="acc-table-onqueue">
-              <div class="text-dark fw-bold">On-Queue Tickets</div>
+              <div class="text-dark fw-bold">To Deliver Orders</div>
             </button>
           </h2>
           <!-- Accordion Body -->
@@ -187,12 +188,12 @@
               <table class="table table-striped table-responsive-md table-sm table-hover">
                 <thead class="table-dark">
                   <tr>
-                    <th scope="col">Ticket No</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Requested By</th>
-                    <th scope="col">Department</th>
-                    <th scope="col">Date Requested</th>
-                    <th scope="col">Target Date</th>
+                    <th scope="col">Order No</th>
+                    <th scope="col">Seller Store</th>
+                    <th scope="col">Costumer Name</th>
+                    <th scope="col">Order Type</th>
+                    <th scope="col">Order Date Placed</th>
+                    <th scope="col">Target Delivery Date</th>
                     <th scope="col">Category</th>
                     <th scope="col">Status</th>
                     <th scope="col">Action</th>
@@ -200,91 +201,61 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <th class="align-middle fs-6" scope="row">TIX-20231025</th>
-                    <td class="align-middle fs-6">New PC for employee</td>
-                    <td class="align-middle fs-6">Clark Cena</td>
-                    <td class="align-middle fs-6">Sales Department</td>
-                    <td class="align-middle fs-6">2023-10-25</td>
-                    <td class="align-middle fs-6">2023-10-27</td>
-                    <td class="align-middle fs-6">Hardware Assignment</td>
-                    <td class="align-middle fs-6"><span class="badge rounded-pill text-bg-secondary">On Queue</span></td>
+                    <th class="align-middle fs-6" scope="row">OR-20231011</th>
+                    <td class="align-middle fs-6">Globalist</td>
+                    <td class="align-middle fs-6">George Bush</td>
+                    <td class="align-middle fs-6">Cash On Delivery</td>
+                    <td class="align-middle fs-6">2023-08-15</td>
+                    <td class="align-middle fs-6">2023-08-19</td>
+                    <td class="align-middle fs-6">Fashion & Apparel</td>
+                    <td class="align-middle fs-6"><span class="badge rounded-pill text-bg-secondary">To Deliver</span></td>
                     <td class="align-middle fs-6"><button class="btn btn-info " data-bs-toggle="modal" data-bs-target="#viewTicketModal">view</button></td>
                   </tr>
+                  
+                  
                   <tr>
-                    <th class="align-middle" scope="row">TIX-20231024</th>
-                    <td class="align-middle">Incorrect Computation</td>
-                    <td class="align-middle">John Morty</td>
-                    <td class="align-middle">Accounting Department</td>
-                    <td class="align-middle">2023-10-06</td>
-                    <td class="align-middle">2023-10-14</td>
-                    <td class="align-middle">Software Module</td>
-                    <td class="align-middle"><span class="badge rounded-pill text-bg-secondary me-1">On Queue</span><span class="badge rounded-pill text-bg-danger">overdue</span></td>
+                    <th class="align-middle" scope="row">OR-20231015</th>
+                    <td class="align-middle">GIGABYTE Official Store</td>
+                    <td class="align-middle">Francesca Reals</td>
+                    <td class="align-middle">Cash On Delivery</td>
+                    <td class="align-middle">2023-11-29</td>
+                    <td class="align-middle">2023-12-03</td>
+                    <td class="align-middle">Laptops & Computers</td>
+                    <td class="align-middle"><span class="badge rounded-pill text-bg-secondary me-1">To Deliver</span><span class="badge rounded-pill text-bg-danger">Delayed</span></td>
+                    <td class="align-middle"><button class="btn btn-info " data-bs-toggle="modal" data-bs-target="#viewTicketModal">view</button></td>
+                  </tr>
+                  
+                  <tr>
+                    <th class="align-middle" scope="row">OR-20231023</th>
+                    <td class="align-middle">Cannon.ph</td>
+                    <td class="align-middle">Freddie Bears</td>
+                    <td class="align-middle">Paid Delivery</td>
+                    <td class="align-middle">2023-11-27</td>
+                    <td class="align-middle">2023-12-01</td>
+                    <td class="align-middle">Hardware & Printers</td>
+                    <td class="align-middle"><span class="badge rounded-pill text-bg-secondary me-1">To Deliver</span><span class="badge rounded-pill text-bg-danger">Delayed</span></td>
                     <td class="align-middle"><button class="btn btn-info " data-bs-toggle="modal" data-bs-target="#viewTicketModal">view</button></td>
                   </tr>
                   <tr>
-                    <th class="align-middle" scope="row">TIX-20231017</th>
-                    <td class="align-middle">Cannot Print</td>
-                    <td class="align-middle">Adam Black</td>
-                    <td class="align-middle">HighSchool Department</td>
-                    <td class="align-middle">2023-10-05</td>
-                    <td class="align-middle">2023-10-08</td>
-                    <td class="align-middle">Hardware Support</td>
-                    <td class="align-middle"><span class="badge rounded-pill text-bg-secondary me-1">On Queue</span><span class="badge rounded-pill text-bg-danger">overdue</span></td>
+                    <th class="align-middle" scope="row">OR-20231013</th>
+                    <td class="align-middle">AquaFlask Store</td>
+                    <td class="align-middle">Donalyn Dela Cruz</td>
+                    <td class="align-middle">Paid Delivery</td>
+                    <td class="align-middle">2023-12-06</td>
+                    <td class="align-middle">2023-12-15</td>
+                    <td class="align-middle">Miscellaneous</td>
+                    <td class="align-middle"><span class="badge rounded-pill text-bg-secondary">To Deliver</span></td>
                     <td class="align-middle"><button class="btn btn-info " data-bs-toggle="modal" data-bs-target="#viewTicketModal">view</button></td>
                   </tr>
                   <tr>
-                    <th class="align-middle" scope="row">TIX-20231015</th>
-                    <td class="align-middle">New Laptop Request</td>
-                    <td class="align-middle">Donna Addams</td>
-                    <td class="align-middle">HighSchool Department</td>
-                    <td class="align-middle">2023-10-04</td>
-                    <td class="align-middle">2023-10-10</td>
-                    <td class="align-middle">Hardware Assignment</td>
-                    <td class="align-middle"><span class="badge rounded-pill text-bg-secondary me-1">On Queue</span><span class="badge rounded-pill text-bg-danger">overdue</span></td>
-                    <td class="align-middle"><button class="btn btn-info " data-bs-toggle="modal" data-bs-target="#viewTicketModal">view</button></td>
-                  </tr>
-                  <tr>
-                    <th class="align-middle" scope="row">TIX-20231011</th>
-                    <td class="align-middle">Additional Module Access</td>
-                    <td class="align-middle">Sandra David</td>
-                    <td class="align-middle">HighSchool Department</td>
-                    <td class="align-middle">2023-10-15</td>
-                    <td class="align-middle">2023-10-26</td>
-                    <td class="align-middle">Software Module</td>
-                    <td class="align-middle"><span class="badge rounded-pill text-bg-secondary">On Queue</span></td>
-                    <td class="align-middle"><button class="btn btn-info " data-bs-toggle="modal" data-bs-target="#viewTicketModal">view</button></td>
-                  </tr>
-                  <tr>
-                    <th class="align-middle" scope="row">TIX-20231012</th>
-                    <td class="align-middle">Additional Workload</td>
-                    <td class="align-middle">Sandra David</td>
-                    <td class="align-middle">HighSchool Department</td>
-                    <td class="align-middle">2023-10-16</td>
-                    <td class="align-middle">2023-10-26</td>
-                    <td class="align-middle">Software Module</td>
-                    <td class="align-middle"><span class="badge rounded-pill text-bg-secondary">On Queue</span></td>
-                    <td class="align-middle"><button class="btn btn-info " data-bs-toggle="modal" data-bs-target="#viewTicketModal">view</button></td>
-                  </tr>
-                  <tr>
-                    <th class="align-middle" scope="row">TIX-20231013</th>
-                    <td class="align-middle">System override for record</td>
-                    <td class="align-middle">Amy Lewis</td>
-                    <td class="align-middle">Executive Department</td>
-                    <td class="align-middle">2023-10-15</td>
-                    <td class="align-middle">2023-10-26</td>
-                    <td class="align-middle">Software Module</td>
-                    <td class="align-middle"><span class="badge rounded-pill text-bg-secondary">On Queue</span></td>
-                    <td class="align-middle"><button class="btn btn-info " data-bs-toggle="modal" data-bs-target="#viewTicketModal">view</button></td>
-                  </tr>
-                  <tr>
-                    <th class="align-middle" scope="row">TIX-20231014</th>
-                    <td class="align-middle">New Report Request</td>
-                    <td class="align-middle">Laura Davis</td>
-                    <td class="align-middle">College Department</td>
-                    <td class="align-middle">2023-10-15</td>
-                    <td class="align-middle">2023-10-24</td>
-                    <td class="align-middle">Software Module</td>
-                    <td class="align-middle"><span class="badge rounded-pill text-bg-secondary">On Queue</span></td>
+                    <th class="align-middle" scope="row">OR-20231057</th>
+                    <td class="align-middle">Origin PC Offical Store</td>
+                    <td class="align-middle">Snoop Dowg</td>
+                    <td class="align-middle">Paid Delivery</td>
+                    <td class="align-middle">2023-12-01</td>
+                    <td class="align-middle">2023-12-16</td>
+                    <td class="align-middle">Computers</td>
+                    <td class="align-middle"><span class="badge rounded-pill text-bg-secondary">To Deliver</span></td>
                     <td class="align-middle"><button class="btn btn-info " data-bs-toggle="modal" data-bs-target="#viewTicketModal">view</button></td>
                   </tr>
                 </tbody>
@@ -301,7 +272,7 @@
          <!-- Accordion Header -->
          <h2 class="accordion-header">
            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#acc-table-success" aria-expanded="true" aria-controls="acc-table-success">
-             <div class="text-dark fw-bold">Completed Tickets</div>
+             <div class="text-dark fw-bold">Completed Orders</div>
            </button>
          </h2>
          <!-- Accordion Body -->
@@ -311,52 +282,52 @@
              <table class="table table-striped table-responsive-md table-sm table-hover" id="table-completed">
                <thead class="table-dark">
                  <tr>
-                   <th scope="col">Ticket No</th>
-                   <th scope="col">Title</th>
-                   <th scope="col">Requested By</th>
-                   <th scope="col">Department</th>
-                   <th scope="col">Date Requested</th>
-                   <th scope="col">Date Completed</th>
-                   <th scope="col">Category</th>
-                   <th scope="col">Status</th>
-                   <th scope="col" class="text-center">Action</th>
+                  <th scope="col">Order No</th>
+                  <th scope="col">Seller Store</th>
+                  <th scope="col">Costumer Name</th>
+                  <th scope="col">Order Type</th>
+                  <th scope="col">Order Date Placed</th>
+                  <th scope="col">Target Delivery Date</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Status</th>
+                  <th scope="col" class="text-center">Action</th>
                  </tr>
                </thead>
                <tbody>
                  <tr>
-                   <th class="align-middle" scope="row">TIX-20231008</th>
-                   <td class="align-middle">Additional Module Access</td>
-                   <td class="align-middle">Erika Weltz</td>
-                   <td class="align-middle">HR Department</td>
-                   <td class="align-middle">2023-10-06</td>
-                   <td class="align-middle">2023-10-08</td>
-                   <td class="align-middle">Software Module</td>
+                   <th class="align-middle" scope="row">OR-20231003</th>
+                   <td class="align-middle">TP-Link Routes</td>
+                   <td class="align-middle">Rentaro Helms</td>
+                   <td class="align-middle">Charge Delivery</td>
+                   <td class="align-middle">2023-05-05</td>
+                   <td class="align-middle">2023-05-10</td>
+                   <td class="align-middle">Electronics</td>
                    <td class="align-middle"><span class="badge rounded-pill text-bg-success">completed</span></td>
                     <td class="align-middle text-center">
                      <button class="btn btn-info view-ticket" >view</button>
                    </td>
                  </tr>
                  <tr>
-                   <th class="align-middle" scope="row">TIX-20231001</th>
-                   <td class="align-middle">New Report For Student Record</td>
-                   <td class="align-middle">Laura Davis</td>
-                   <td class="align-middle">College Department</td>
-                   <td class="align-middle">2023-10-01</td>
-                   <td class="align-middle">2023-10-05</td>
-                   <td class="align-middle">Software Module</td>
+                   <th class="align-middle" scope="row">OR-20231007</th>
+                   <td class="align-middle">Tic Tach Tic</td>
+                   <td class="align-middle">Lamar Davis</td>
+                   <td class="align-middle">Cash On Delivery</td>
+                   <td class="align-middle">2023-06-17</td>
+                   <td class="align-middle">2023-06-21</td>
+                   <td class="align-middle">In Ear Monitor</td>
                    <td class="align-middle"><span class="badge rounded-pill text-bg-success">completed</span></td>
                     <td class="align-middle text-center">
                      <button class="btn btn-info view-ticket" >view</button>
                    </td>
                  </tr>
                  <tr>
-                   <th class="align-middle" scope="row">TIX-20231009</th>
-                   <td class="align-middle">Additional Module Access</td>
-                   <td class="align-middle">Erika Weltz</td>
-                   <td class="align-middle">HR Department</td>
-                   <td class="align-middle">2023-10-06</td>
-                   <td class="align-middle">2023-10-08</td>
-                   <td class="align-middle">Software Module</td>
+                   <th class="align-middle" scope="row">OR-20231009</th>
+                   <td class="align-middle">Apacer Offical</td>
+                   <td class="align-middle">Karane Ocampo</td>
+                   <td class="align-middle">Charge Delivery</td>
+                   <td class="align-middle">2023-08-08</td>
+                   <td class="align-middle">2023-08-15</td>
+                   <td class="align-middle">Electronics</td>
                    <td class="align-middle"><span class="badge rounded-pill text-bg-success">completed</span></td>
                    <td class="align-middle text-center">
                      <button class="btn btn-info view-ticket" >view</button>
@@ -380,7 +351,7 @@
           <div class="modal-content">
 
             <div class="modal-header bg-warning" id="modal-header">
-              <h1 class="modal-title fs-5" id="view-ticket-label">Ticket Details for <span class="fw-bold" id="modal-ticket-no">TIX-20231006 [On Going]</span></h1>
+              <h1 class="modal-title fs-5" id="view-ticket-label">Order Details for <span class="fw-bold" id="modal-order-no">OR-20220101 [To Pack]</span></h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <!-- Modal Body -->
@@ -392,29 +363,29 @@
                     <!-- CATEGORY -->
                     <label for="category" class="col-form-label col-2 fw-bold text-end">Category:</label>
                     <div class="col-4">
-                      <input type="text" class="form-control form-control-sm" name="category" id="category" value="Hardware Support" disabled required>
+                      <input type="text" class="form-control form-control-sm" name="category" id="category" value="Apparel" disabled required>
                       <div class="invalid-feedback">This field is required.</div>
                     </div>
                     
                     <!-- STATUS -->
                     <label for="category" class="col-form-label col-2 fw-bold text-end">Status:</label>
                     <div class="col-4">
-                      <input type="text" class="form-control form-control-sm text-bg-warning" name="field-status" id="field-status" value="On Going" disabled required>
+                      <input type="text" class="form-control form-control-sm text-bg-warning" name="field-status" id="field-status" value="To Pack" disabled required>
                     </div>
 
                     <!-- TITLE -->
-                    <label for="request-title" class="col-form-label col-2 fw-bold text-end">Request Title:</label>
+                    <label for="c-name" class="col-form-label col-2 fw-bold text-end">Costumer Name:</label>
                     <div class="col-10">
-                      <textarea class="form-control form-control-sm" name="request-title" id="request-title" rows="1" disabled required>Additional Module Access</textarea>
+                      <textarea class="form-control form-control-sm" name="c-name" id="c-name" rows="1" disabled required>Will Smith</textarea>
                       <div class="invalid-feedback">
                         This field is required.
                       </div>
                     </div>
 
-                    <!-- DESCRIPTION -->
-                    <label for="ticket-description" class="col-form-label col-2 fw-bold text-end">Ticket Description:</label>
+                    <!-- ORDER DESCRIPTION -->
+                    <label for="order-Ndescription" class="col-form-label col-2 fw-bold text-end">Order Description:</label>
                     <div class="col-10">
-                      <textarea class="form-control form-control-sm mb-2" name="ticket-description" id="ticket-description" rows="3" disabled required>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi esse provident mollitia aut illum perspiciatis hic sint similique consequuntur, odio aspernatur impedit excepturi praesentium architecto, voluptates dolore voluptas dolores dicta!</textarea>
+                      <textarea class="form-control form-control-sm mb-2" name="order-Ndescription" id="order-Ndescription" rows="3" disabled required>Sample Text</textarea>
                       <div class="invalid-feedback">
                         This field is required.
                       </div>
@@ -423,13 +394,13 @@
                     <!-- DATE CREATED -->
                     <label for="date-created" class="col-form-label col-2 fw-bold text-end">Date Created:</label>
                     <div class="col-4">
-                      <input type="date" class="form-control form-control-sm" name="date-created" id="date-created" value="2023-10-10" disabled >
+                      <input type="date" class="form-control form-control-sm" name="date-created" id="date-created" value="2022-01-02" disabled >
                     </div>
 
-                    <!-- TARGET DATE -->
-                    <label for="target-date" class="col-form-label col-2 fw-bold text-end">Target Date:</label>
+                    <!-- Target Delivery Date -->
+                    <label for="target-date" class="col-form-label col-2 fw-bold text-end">Target Delivery Date:</label>
                     <div class="col-4">
-                      <input type="date" class="form-control form-control-sm" name="target-date" id="target-date" value="2023-10-15" disabled required>
+                      <input type="date" class="form-control form-control-sm" name="target-date" id="target-date" value="2022-02-01" disabled required>
                       <div class="invalid-feedback">
                         This field is required.
                       </div>
@@ -445,19 +416,11 @@
                     </div>
 
                     <!-- ASSIGNED TO -->
-                    <label for="assigned-to" class="col-form-label col-2 fw-bold text-end">Assigned To:</label>
+                    <label for="approved-by" class="col-form-label col-2 fw-bold text-end">Approved By:</label>
                     <div class="col-4">
-                      <input type="text" class="form-control form-control-sm" name="assigned-to" id="assigned-to" value="John Michael De Vera" disabled>
+                      <input type="text" class="form-control form-control-sm" name="approved-by" id="approved-by" value="JC Coral" disabled>
                     </div>
 
-                    <!-- DEPARTMENT -->
-                    <label for="department" class="col-form-label col-2 fw-bold text-end">Department:</label>
-                    <div class="col-4">
-                      <input type="text" class="form-control form-control-sm" name="department" id="department" value="Sales Department" disabled required>
-                      <div class="invalid-feedback">
-                        Please add your department.This field is required.
-                      </div>
-                    </div>
 
                     <!-- DATE COMPLETED -->
                     <label for="date-completed" class="col-form-label col-2 fw-bold text-end">Date Completed:</label>
