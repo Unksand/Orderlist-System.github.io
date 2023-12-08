@@ -37,7 +37,7 @@
             <!-- To Deliver Card -->
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card bg-info-subtle text-light text-center">
-                <div class="card-header fs-4">To Delivered</div>
+                <div class="card-header fs-4">To Deliver</div>
                 <div class="d-flex align-items-center justify-content-around py-3">
                     <i class="bi bi-truck fs-1 text-light"></i>
                     <h2 class="fw-bold fs-1">5</h2>
@@ -80,7 +80,13 @@
         </div>
     <div class=" divider my-2"></div>
 
+    <div class="container-fluid px-4 py-2">
+      <div class="row">
+        
+        <button type="button" class="btn btn-primary" id="add-ticket">Add Orders</button>
+      </div>
 
+    </div>
     <!-- ONGOING TABLE -->
     <section class="accordion container-fluid" id="accordion-table-ongoing">
         <div class="accordion-item acc-warning">
@@ -105,7 +111,7 @@
                     <th scope="col">Target Delivery Date</th>
                     <th scope="col">Category</th>
                     <th scope="col">Status</th>
-                    <th scope="col">Action</th>
+                    <th scope="col" class="text-center">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -118,7 +124,11 @@
                         <td class="align-middle">2023-03-18</td>
                         <td class="align-middle">Electronics</td>
                         <td class="align-middle"><span class="badge rounded-pill text-bg-warning">To Pack</span></td>
-                        <td class="align-middle"><button class="btn btn-info " data-bs-toggle="modal" data-bs-target="#viewTicketModal">view</button></td>
+                        <td class="align-middle text-center">
+                          <button class="btn btn-info view-ticket" >view</button>
+                          <button class="btn btn-warning edit-ticket" >Edit</button>
+                          <button class="btn btn-danger delete-ticket" >Delete</button>
+                        </td>
                     </tr>
                     <tr>
                         <th class="align-middle" scope="row">OR-20231002</th>
@@ -129,7 +139,12 @@
                         <td class="align-middle">2023-04-07</td>
                         <td class="align-middle">Electronics</td>
                         <td class="align-middle"><span class="badge rounded-pill text-bg-warning">To Pack</span></td>
-                        <td class="align-middle"><button class="btn btn-info " data-bs-toggle="modal" data-bs-target="#viewTicketModal">view</button></td>
+                        <td class="align-middle text-center">
+                          <button class="btn btn-info view-ticket" >view</button>
+                          <button class="btn btn-warning edit-ticket" >Edit</button>
+                          <button class="btn btn-danger delete-ticket" >Delete</button>
+                        </td>
+                        
                     </tr>
                     <tr>
                         <th class="align-middle" scope="row">OR-20231016</th>
@@ -140,7 +155,11 @@
                         <td class="align-middle">2023-06-29</td>
                         <td class="align-middle">Clothing</td>
                         <td class="align-middle"><span class="badge rounded-pill text-bg-warning">To Pack</span></td>
-                        <td class="align-middle"><button class="btn btn-info " data-bs-toggle="modal" data-bs-target="#viewTicketModal">view</button></td>
+                        <td class="align-middle text-center">
+                          <button class="btn btn-info view-ticket" >view</button>
+                          <button class="btn btn-warning edit-ticket" >Edit</button>
+                          <button class="btn btn-danger delete-ticket" >Delete</button>
+                        </td>
                     </tr>
                     <tr>
                         <th class="align-middle" scope="row">OR-20231064</th>
@@ -151,7 +170,11 @@
                         <td class="align-middle">2023-05-24</td>
                         <td class="align-middle">Electronics</td>
                         <td class="align-middle"><span class="badge rounded-pill text-bg-warning me-1">To Pack</span><span class="badge rounded-pill text-bg-danger">Delayed</span></td>
-                        <td class="align-middle"><button class="btn btn-info " data-bs-toggle="modal" data-bs-target="#viewTicketModal">view</button></td>
+                        <td class="align-middle text-center">
+                          <button class="btn btn-info view-ticket" >view</button>
+                          <button class="btn btn-warning edit-ticket" >Edit</button>
+                          <button class="btn btn-danger delete-ticket" >Delete</button>
+                        </td>
                     </tr>
                     <tr>
                         <th class="align-middle" scope="row">OR-20231035</th>
@@ -162,7 +185,11 @@
                         <td class="align-middle">2023-10-16</td>
                         <td class="align-middle">Electronics</td>
                         <td class="align-middle"><span class="badge rounded-pill text-bg-warning me-1">To Pack</span><span class="badge rounded-pill text-bg-danger">Delayed</span></td>
-                        <td class="align-middle"><button class="btn btn-info " data-bs-toggle="modal" data-bs-target="#viewTicketModal">view</button></td>
+                        <td class="align-middle text-center">
+                          <button class="btn btn-info view-ticket" >view</button>
+                          <button class="btn btn-warning edit-ticket" >Edit</button>
+                          <button class="btn btn-danger delete-ticket" >Delete</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -196,7 +223,7 @@
                     <th scope="col">Target Delivery Date</th>
                     <th scope="col">Category</th>
                     <th scope="col">Status</th>
-                    <th scope="col">Action</th>
+                    <th scope="col" class="text-center">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -208,8 +235,12 @@
                     <td class="align-middle fs-6">2023-08-15</td>
                     <td class="align-middle fs-6">2023-08-19</td>
                     <td class="align-middle fs-6">Fashion & Apparel</td>
-                    <td class="align-middle fs-6"><span class="badge rounded-pill text-bg-secondary">To Deliver</span></td>
-                    <td class="align-middle fs-6"><button class="btn btn-info " data-bs-toggle="modal" data-bs-target="#viewTicketModal">view</button></td>
+                    <td class="align-middle fs-6"><span class="badge rounded-pill text-bg-info">To Deliver</span></td>
+                    <td class="align-middle text-center">
+                      <button class="btn btn-info view-ticket" >view</button>
+                      <button class="btn btn-warning edit-ticket" >Edit</button>
+                      <button class="btn btn-danger delete-ticket" >Delete</button>
+                    </td>
                   </tr>
                   
                   
@@ -221,8 +252,12 @@
                     <td class="align-middle">2023-11-29</td>
                     <td class="align-middle">2023-12-03</td>
                     <td class="align-middle">Laptops & Computers</td>
-                    <td class="align-middle"><span class="badge rounded-pill text-bg-secondary me-1">To Deliver</span><span class="badge rounded-pill text-bg-danger">Delayed</span></td>
-                    <td class="align-middle"><button class="btn btn-info " data-bs-toggle="modal" data-bs-target="#viewTicketModal">view</button></td>
+                    <td class="align-middle"><span class="badge rounded-pill text-bg-info me-1">To Deliver</span><span class="badge rounded-pill text-bg-danger">Delayed</span></td>
+                    <td class="align-middle text-center">
+                      <button class="btn btn-info view-ticket" >view</button>
+                      <button class="btn btn-warning edit-ticket" >Edit</button>
+                      <button class="btn btn-danger delete-ticket" >Delete</button>
+                    </td>
                   </tr>
                   
                   <tr>
@@ -233,8 +268,12 @@
                     <td class="align-middle">2023-11-27</td>
                     <td class="align-middle">2023-12-01</td>
                     <td class="align-middle">Hardware & Printers</td>
-                    <td class="align-middle"><span class="badge rounded-pill text-bg-secondary me-1">To Deliver</span><span class="badge rounded-pill text-bg-danger">Delayed</span></td>
-                    <td class="align-middle"><button class="btn btn-info " data-bs-toggle="modal" data-bs-target="#viewTicketModal">view</button></td>
+                    <td class="align-middle"><span class="badge rounded-pill text-bg-info me-1">To Deliver</span><span class="badge rounded-pill text-bg-danger">Delayed</span></td>
+                    <td class="align-middle text-center">
+                      <button class="btn btn-info view-ticket" >view</button>
+                      <button class="btn btn-warning edit-ticket" >Edit</button>
+                      <button class="btn btn-danger delete-ticket" >Delete</button>
+                    </td>
                   </tr>
                   <tr>
                     <th class="align-middle" scope="row">OR-20231013</th>
@@ -244,8 +283,12 @@
                     <td class="align-middle">2023-12-06</td>
                     <td class="align-middle">2023-12-15</td>
                     <td class="align-middle">Miscellaneous</td>
-                    <td class="align-middle"><span class="badge rounded-pill text-bg-secondary">To Deliver</span></td>
-                    <td class="align-middle"><button class="btn btn-info " data-bs-toggle="modal" data-bs-target="#viewTicketModal">view</button></td>
+                    <td class="align-middle"><span class="badge rounded-pill text-bg-info">To Deliver</span></td>
+                    <td class="align-middle text-center">
+                      <button class="btn btn-info view-ticket" >view</button>
+                      <button class="btn btn-warning edit-ticket" >Edit</button>
+                      <button class="btn btn-danger delete-ticket" >Delete</button>
+                    </td>
                   </tr>
                   <tr>
                     <th class="align-middle" scope="row">OR-20231057</th>
@@ -255,8 +298,12 @@
                     <td class="align-middle">2023-12-01</td>
                     <td class="align-middle">2023-12-16</td>
                     <td class="align-middle">Computers</td>
-                    <td class="align-middle"><span class="badge rounded-pill text-bg-secondary">To Deliver</span></td>
-                    <td class="align-middle"><button class="btn btn-info " data-bs-toggle="modal" data-bs-target="#viewTicketModal">view</button></td>
+                    <td class="align-middle"><span class="badge rounded-pill text-bg-info">To Deliver</span></td>
+                    <td class="align-middle text-center">
+                      <button class="btn btn-info view-ticket" >view</button>
+                      <button class="btn btn-warning edit-ticket" >Edit</button>
+                      <button class="btn btn-danger delete-ticket" >Delete</button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -305,6 +352,8 @@
                    <td class="align-middle"><span class="badge rounded-pill text-bg-success">completed</span></td>
                     <td class="align-middle text-center">
                      <button class="btn btn-info view-ticket" >view</button>
+                     <button class="btn btn-warning edit-ticket" >Edit</button>
+                     <button class="btn btn-danger delete-ticket" >Delete</button>
                    </td>
                  </tr>
                  <tr>
@@ -318,6 +367,8 @@
                    <td class="align-middle"><span class="badge rounded-pill text-bg-success">completed</span></td>
                     <td class="align-middle text-center">
                      <button class="btn btn-info view-ticket" >view</button>
+                     <button class="btn btn-warning edit-ticket" >Edit</button>
+                     <button class="btn btn-danger delete-ticket" >Delete</button>
                    </td>
                  </tr>
                  <tr>
@@ -331,6 +382,8 @@
                    <td class="align-middle"><span class="badge rounded-pill text-bg-success">completed</span></td>
                    <td class="align-middle text-center">
                      <button class="btn btn-info view-ticket" >view</button>
+                     <button class="btn btn-warning edit-ticket" >Edit</button>
+                    <button class="btn btn-danger delete-ticket" >Delete</button>
                    </td>
                  </tr>
                </tbody>
@@ -343,18 +396,19 @@
      </section>  
 
      <div class="divider my-1"></div>
-     <!-- ------------------- -->
-      <!-- TRANSACTIONAL MODAL -->
-      <!-- ------------------- -->
-      <div class="modal fade " id="viewTicketModal" tabindex="-1" aria-labelledby="view-ticket-label" aria-hidden="true">
+
+
+
+      <!-- ORDER TRANSACTION MODAL -->
+      <div class="modal fade " id="viewTicketModal" tabindex="-1" aria-labelledby="view-order-label" aria-hidden="true">
         <div class="modal-dialog modal-xl">
           <div class="modal-content">
 
             <div class="modal-header bg-warning" id="modal-header">
-              <h1 class="modal-title fs-5" id="view-ticket-label">Order Details for <span class="fw-bold" id="modal-order-no">OR-20220101 [To Pack]</span></h1>
+              <h1 class="modal-title fs-5" id="view-order-label">Order Details for <span class="fw-bold" id="modal-order-no">OR-20220101 [To Pack]</span></h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <!-- Modal Body -->
+            <!-- MODAL BODY -->
             <div class="modal-body">
               <div class="container">
                 <form class="requires-validation" novalidate>
@@ -373,7 +427,7 @@
                       <input type="text" class="form-control form-control-sm text-bg-warning" name="field-status" id="field-status" value="To Pack" disabled required>
                     </div>
 
-                    <!-- TITLE -->
+                    <!-- COSTUMER NAME -->
                     <label for="c-name" class="col-form-label col-2 fw-bold text-end">Costumer Name:</label>
                     <div class="col-10">
                       <textarea class="form-control form-control-sm" name="c-name" id="c-name" rows="1" disabled required>Will Smith</textarea>
@@ -397,7 +451,7 @@
                       <input type="date" class="form-control form-control-sm" name="date-created" id="date-created" value="2022-01-02" disabled >
                     </div>
 
-                    <!-- Target Delivery Date -->
+                    <!-- TARGET DELIVERY DATE -->
                     <label for="target-date" class="col-form-label col-2 fw-bold text-end">Target Delivery Date:</label>
                     <div class="col-4">
                       <input type="date" class="form-control form-control-sm" name="target-date" id="target-date" value="2022-02-01" disabled required>
@@ -433,7 +487,7 @@
                 </form>  
               </div>
             </div>
-            <!-- Modal Footer -->
+            <!-- MODAL FOOTER -->
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               <button type="button" class="btn btn-warning d-none" id="modal-btn-process"  data-bs-dismiss="modal">Process Ticket</button>
@@ -446,6 +500,69 @@
           </div>
         </div>
       </div>
+      <!-- ------------ -->
+      <!-- DELETE MODAL -->
+      <!-- ------------ -->
+      <div class="modal fade" id="deleteTicketModal" tabindex="-1" aria-labelledby="delete-ticket-label" aria-hidden="true">
+        <div class="modal-dialog modal-md ">
+          <div class="modal-content">
+            <div class="modal-header bg-danger" id="modal-header">
+              <h1 class="modal-title fs-5" id="delete-ticket-label">Confirm Delete</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!-- Modal Body -->
+            <div class="modal-body">
+              <div id="delete-prompt">Are you sure you want to delete </div>
+            </div>
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-outline-danger" id="modal-btn-delete">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ------------ -->
+      <!-- CONFIRM MODAL -->
+      <!-- ------------ -->
+      <div class="modal fade" id="confirmTicketModal" tabindex="-1" aria-labelledby="confirm-ticket-label" aria-hidden="true">
+        <div class="modal-dialog modal-md ">
+          <div class="modal-content">
+            <div class="modal-header" id="modal-header">
+              <h1 class="modal-title fs-5" id="confirm-ticket-label">Confirm Record</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!-- Modal Body -->
+            <div class="modal-body">
+              <div id="confirm-prompt">Are you sure you want to delete </div>
+            </div>
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+              <button type="button" class="btn btn-success" id="modal-btn-yes">Yes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Toast -->
+      <div aria-live="polite" aria-atomic="true" class="position-relative">
+        <div class="toast-container bottom-right-toast p-3" >
+          
+        </div>
+      </div>
+
+      <footer class="bg-dark">
+        <div class="container-fluid py-2">
+          <div class="row justify-content-between">
+            <div class="col text-info fw-bold ps-4"><a href="#">Judd Ira Manzano</a></div>
+            <div class="col text-end pe-4"><a href="" class="text-dark text-decoration-none">Developed by: <span class="text-primary">OrderListSystem@2023</span></a></div>
+          </div>
+        </div>
+      </footer>
+    <script src="public/index.js"></script>
     <script src="bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
 </body>
 </html>
