@@ -1,8 +1,7 @@
 let toastCtr = 0;
-/** 
- * changeModalHeaderColor
- * -changes modal header color based on row status
- * 
+
+
+/**  
  * @param {string} status 
  */
 
@@ -64,8 +63,7 @@ function breakByHTMLChars(statusHtml = ""){
 }
 
 /** 
- * showHideTableButtons
- * -show or hide the table buttons depending on row status
+ * 
  * @param {object} row 
  */
 function showHideTableButtons(row){
@@ -81,11 +79,10 @@ function showHideTableButtons(row){
 }
 
 /** 
- * showHideModalButtons
- * -show or hide the buttons inside the of the modal based on row status
+ * 
  * 
  * @param {object} row 
- * @param {string} state name of originating function call, ex. from "edit" 
+ * @param {string} state 
  */
 function showHideModalButtons(row, state =''){
   const columns = row.getElementsByTagName('td'); 
@@ -154,10 +151,7 @@ function showHideModalButtons(row, state =''){
   
 }
 
-/** 
- * removeRowHightlight
- * -removes row highlight
- */
+// to remove text highlight
 function removeRowHightlight(){
   document.querySelectorAll('tr').forEach(row => {
     row.classList.remove('table-active');
@@ -165,10 +159,8 @@ function removeRowHightlight(){
   });
 }
 
-/** 
- * addGlobalEventListener
- * -js event delegation wrapper
- */
+// add the global event listener
+
 function addGlobalEventListener(type, selector, callback){
   document.addEventListener(type, e => {
     if(e.target.matches(selector)) callback(e);
@@ -179,8 +171,8 @@ function addGlobalEventListener(type, selector, callback){
  * generateToast
  * -generate dynamic toast message
  * 
- * @param {string} [bgColor=""]     bootstrap bg color class
- * @param {string} [textMessage=""] text string to prompt
+ * @param {string} [bgColor=""]     
+ * @param {string} [textMessage=""] 
  */
 function generateToast(bgColor = "", textMessage =""){
   toastCtr++;
@@ -201,7 +193,6 @@ function generateToast(bgColor = "", textMessage =""){
 }
 
 /**
- * assignRowFieldValues
  * - assign the selected row data to modal fields
  * @param {object} row 
  */
@@ -241,11 +232,7 @@ function assignRowFieldValues(row) {
 }
 
 
-/**
- * clearFieldValues
- * - empty text field value for add modal
- * 
- */
+
 function clearFieldValues() {
   let modalLabel  = document.getElementById('view-ticket-label');
   let modalTitle  = document.getElementById('view-ticket-label');
@@ -282,7 +269,7 @@ function clearFieldValues() {
   dateCreated.setAttribute("disabled","");
   approvedBy.setAttribute("disabled","");
 
-  //show create ticket button
+  //show create order button
   removeBtns = modalMain.querySelectorAll("#modal-btn-process,#modal-btn-complete,#modal-btn-save");
   removeBtns.forEach(btnCol => {
     btnCol.classList.add('d-none');
@@ -342,7 +329,7 @@ function addTicketRecord() {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-  //Ticket Button
+  //Order Button
   addButton = document.querySelector('#add-ticket');
   editButton = document.querySelectorAll('.edit-ticket');
   deleteButton = document.querySelectorAll('.delete-ticket');
@@ -353,7 +340,6 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.table tbody tr').forEach(row => {
     showHideTableButtons(row);
     row.addEventListener('dblclick', () => {
-      // Get the data from the clicked row
       const columns = row.getElementsByTagName('td');
       const firstName = columns[1].textContent;
       const lastName = columns[2].textContent;
@@ -382,16 +368,13 @@ document.addEventListener('DOMContentLoaded', function() {
     let row         = e.target.parentElement.parentElement;
     activeRow       = row;
 
-    // assign values to fields base on selected row
     assignRowFieldValues(row);
-
-    //show modal buttons
     showHideModalButtons(row);
   });
 
   // ALL EDIT BUTTONS
   addGlobalEventListener("click",'.edit-ticket', e => {
-    // Remove table row highlight
+
     removeRowHightlight();
 
     let modalView = document.querySelector("#viewTicketModal")
@@ -401,16 +384,16 @@ document.addEventListener('DOMContentLoaded', function() {
     let row         = e.target.parentElement.parentElement;
     activeRow       = row;
     
-    // assign values to fields base on selected row
+
     assignRowFieldValues(row);
 
-    // remove disable attribute in fields
+
     const inputFields = document.querySelectorAll(".form-control");
     inputFields.forEach(input => {
       if(input.id != "date-completed") input.removeAttribute("disabled");
     });
 
-    // show modal buttons
+
     showHideModalButtons(row,"edit");
     
   });
@@ -428,10 +411,10 @@ document.addEventListener('DOMContentLoaded', function() {
       if(input.id != "date-completed") input.removeAttribute("disabled");
     });
 
-    // make text field empty
+
     clearFieldValues();
 
-    // CREATE TICKET BUTTON
+    // CREATE ORDER BUTTON
     createButton.addEventListener('click', function(event){
       const forms = document.querySelectorAll('.requires-validation');
       Array.from(forms).forEach(function (form) {
@@ -451,7 +434,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 
-  // ALL DELETE BUTTONS
+  // DELETE BUTTON
   deleteButton.forEach(function(button){
     button.addEventListener('click', function(){
       removeRowHightlight();
@@ -591,7 +574,7 @@ document.addEventListener('DOMContentLoaded', function() {
     columns[1].textContent = costumerName.value 
     columns[2].textContent = department.value  
     
-    generateToast("text-bg-success",`Ticket ${orderNo[0].textContent} updated`); 
+    generateToast("text-bg-secondary",`Order ${orderNo[0].textContent} updated`); 
   });
 
  
