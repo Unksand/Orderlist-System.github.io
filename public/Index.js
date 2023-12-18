@@ -5,6 +5,7 @@ let toastCtr = 0;
  * 
  * @param {string} status 
  */
+
 function changeModalHeaderColor(status){
   let modalHeader = document.getElementById('modal-header');
   modalHeader.classList.remove('bg-warning','bg-success','bg-success','bg-primary','bg-danger','bg-info');
@@ -12,27 +13,30 @@ function changeModalHeaderColor(status){
   let fstatus       = document.getElementById('field-status');
   fstatus.classList.remove('text-bg-warning','text-bg-secondary','text-bg-success','text-bg-danger' ,'text-bg-info');
 
-  let orderlabel = document.getElementById('view-order-label');
+  let orderlabel = document.getElementById('view-ticket-label');
   orderlabel.classList.remove('text-bg-warning','text-bg-secondary','text-bg-success','text-bg-danger' ,'text-bg-info', 'text-bg-white', 'text-dark');
 
-  let orderno = document.getElementById('modal-order-no');
+  let orderno = document.getElementById('modal-ticket-no');
   orderno.classList.remove('text-bg-warning','text-bg-secondary','text-bg-success','text-bg-danger' ,'text-bg-info', 'text-bg-white', 'text-dark');
 
   switch (status) { 
     case 'add':
       modalHeader.classList.add('bg-primary');
       break; 
-    case 'to pack':
-      modalHeader.classList.add('bg-warning');
-      fstatus.classList.add('text-bg-warning');
-      orderlabel.classList.add('text-dark');
-      orderno.classList.add('text-dark')
-      break;
     case 'to deliver':
       modalHeader.classList.add('bg-info');
       fstatus.classList.add('text-bg-info');
       orderlabel.classList.add('text-dark');
       orderno.classList.add('text-dark');
+      break;
+    case 'to pack':
+      modalHeader.classList.add('bg-warning');
+      fstatus.classList.add('text-bg-warning');
+      orderlabel.classList.add('text-dark');
+      orderno.classList.add('text-dark')
+
+
+      
       break;
     case 'completed':
       modalHeader.classList.add('bg-success');
@@ -100,7 +104,7 @@ function showHideModalButtons(row, state =''){
     });
 
    
-  } else if(status.includes("On Queue")){
+  } else if(status.includes("To Pack")){
     removeBtns = modalMain.querySelectorAll("#modal-btn-complete");
     removeBtns.forEach(btnCol => {
       btnCol.classList.add('d-none');
@@ -123,7 +127,7 @@ function showHideModalButtons(row, state =''){
       });
     }
     
-  } else if(status.includes("ongoing")){
+  } else if(status.includes("To Deliver")){
     removeBtns = modalMain.querySelectorAll("#modal-btn-process");
     removeBtns.forEach(btnCol => {
       btnCol.classList.add('d-none');
@@ -204,18 +208,19 @@ function generateToast(bgColor = "", textMessage =""){
 function assignRowFieldValues(row) {
     const orderNo  = row.getElementsByTagName('th');
     const columns   = row.getElementsByTagName('td');
-    let modalLabel  = document.getElementById('view-order-label');
-    let modalTitle  = document.getElementById('modal-order-no');
+    let modalLabel  = document.getElementById('view-ticket-label');
+    let modalTitle  = document.getElementById('modal-ticket-no');
     let category    = document.getElementById('category');
     let status      = document.getElementById('field-status');
-    let costumerName       = document.getElementById('c-name');
-    let orderDescription = document.getElementById('order-Ndescription');
-    let DateCreated = document.getElementById('date-created');
-    let targetDate  = document.getElementById('target-date');
-    let requestedBy = document.getElementById('requested-by');
+    let title       = document.getElementById('seller-name');
+    let description = document.getElementById('order-description');
+    let dateCreated = document.getElementById('date-created');
+    let targetDeliveryDate  = document.getElementById('target-date');
+    let costumerName = document.getElementById('costumer-name');
     let approvedBy  = document.getElementById('approved-by');
+    let department  = document.getElementById('order-type');
     let completed   = document.getElementById('date-completed');
-    const statusArray = ['ongoing','on queue','completed','overdue'];
+    const statusArray = ['to deliver','to pack','completed','overdue'];
 
     row.classList.add('table-active');
     
@@ -226,12 +231,13 @@ function assignRowFieldValues(row) {
     changeModalHeaderColor(columns[6].textContent.toLowerCase());
     category.value    = columns[5].textContent;
     status.value      = textContentArray.join("/");
-    costumerName.value       = columns[0].textContent;
-    orderDescription.value = 'None';
-    DateCreated.value = columns[3].textContent;
-    targetDate.value  = columns[4].textContent;
-    requestedBy.value = 'John Doe';
+    title.value       = columns[0].textContent;
+    description.value = 'Fast Ship Mode';
+    dateCreated.value = columns[3].textContent;
+    targetDeliveryDate.value  = columns[4].textContent;
+    costumerName.value = columns[1].textContent;
     approvedBy.value  = 'JC Coral';
+    department.value  = columns[2].textContent;
 }
 
 
@@ -241,38 +247,39 @@ function assignRowFieldValues(row) {
  * 
  */
 function clearFieldValues() {
-  let modalLabel  = document.getElementById('view-order-label');
-  let modalTitle  = document.getElementById('view-order-label');
+  let modalLabel  = document.getElementById('view-ticket-label');
+  let modalTitle  = document.getElementById('view-ticket-label');
   let category    = document.getElementById('category');
   let status      = document.getElementById('field-status');
-  let costumerName       = document.getElementById('c-name');
-  let orderDescription = document.getElementById('order-Ndescription');
-  let DateCreated = document.getElementById('date-created');
-  let targetDate  = document.getElementById('target-date');
-  let requestedBy = document.getElementById('requested-by');
+  let title       = document.getElementById('seller-name');
+  let description = document.getElementById('order-description');
+  let dateCreated = document.getElementById('date-created');
+  let targetDeliveryDate  = document.getElementById('target-date');
+  let costumerName = document.getElementById('costumer-name');
   let approvedBy  = document.getElementById('approved-by');
+  let department  = document.getElementById('order-type');
   let completed   = document.getElementById('date-completed');
-  const statusArray = ['ongoing','on queue','completed','overdue'];
+  const statusArray = ['to deliver','to pack','completed','overdue'];
 
   let date = new Date();
   date.setDate(date.getDate() + 7);
   newDateTarget = date.toISOString().split('T')[0];
 
-  modalTitle.innerHTML =`Open Ticket Details for <span class="fw-bold" id="modal-order-no"></span>`;
+  modalTitle.innerHTML =`Open Order Details for <span class="fw-bold" id="modal-ticket-no"></span>`;
   changeModalHeaderColor("add");
   category.value    = '';
-  status.value      = 'On Queue';
-  costumerName.value       = '';
-  orderDescription.value = '';
-  DateCreated.value = new Date().toISOString().split('T')[0];
-  targetDate.value  = newDateTarget;
-  requestedBy.value = '';
+  status.value      = 'To Pack';
+  title.value       = '';
+  description.value = '';
+  dateCreated.value = new Date().toISOString().split('T')[0];
+  targetDeliveryDate.value  = newDateTarget;
+  costumerName.value = '';
   approvedBy.value  = 'JC Coral';
- 
+  department.value  = '';
 
   // disable some dates
   status.setAttribute("disabled","");
-  DateCreated.setAttribute("disabled","");
+  dateCreated.setAttribute("disabled","");
   approvedBy.setAttribute("disabled","");
 
   //show create ticket button
@@ -288,15 +295,16 @@ function clearFieldValues() {
 
 
 function addTicketRecord() {
-  let newOrderNo = `OR-${new Date().getFullYear()}${new Date().getMonth()+1}${new Date().getDate()}`
+  let neworderNo = `OR-${new Date().getFullYear()}${new Date().getMonth()+1}${new Date().getDate()}`
   let category    = document.getElementById('category');
   let status      = document.getElementById('field-status');
-  let costumerName       = document.getElementById('c-name');
-  let orderDescription = document.getElementById('order-Ndescription');
-  let DateCreated = document.getElementById('date-created');
-  let targetDate  = document.getElementById('target-date');
-  let requestedBy = document.getElementById('requested-by');
+  let title       = document.getElementById('seller-name');
+  let description = document.getElementById('order-description');
+  let dateCreated = document.getElementById('date-created');
+  let targetDeliveryDate  = document.getElementById('target-date');
+  let costumerName = document.getElementById('costumer-name');
   let approvedBy  = document.getElementById('approved-by');
+  let department  = document.getElementById('order-type');
   let completed   = document.getElementById('date-completed');
 
   const tblRow   = document.querySelector("#table-onqueue");
@@ -314,20 +322,21 @@ function addTicketRecord() {
   let col8 = newRow.insertCell(7);
   let col9 = newRow.insertCell(8);
 
-  col1.outerHTML = `<th class="align-middle fs-6">${newOrderNo}</th>`;
-  col2.outerHTML = `<td class="align-middle fs-6">${costumerName.value}</td>`;
-  col3.outerHTML = `<td class="align-middle fs-6">${requestedBy.value}</td>`;
-  col5.outerHTML = `<td class="align-middle fs-6">${DateCreated.value}</td>`;
-  col6.outerHTML = `<td class="align-middle fs-6">${targetDate.value}</td>`;
+  col1.outerHTML = `<th class="align-middle fs-6">${neworderNo}</th>`;
+  col2.outerHTML = `<td class="align-middle fs-6">${title.value}</td>`;
+  col3.outerHTML = `<td class="align-middle fs-6">${costumerName.value}</td>`;
+  col4.outerHTML = `<td class="align-middle fs-6">${department.value}</td>`;
+  col5.outerHTML = `<td class="align-middle fs-6">${dateCreated.value}</td>`;
+  col6.outerHTML = `<td class="align-middle fs-6">${targetDeliveryDate.value}</td>`;
   col7.outerHTML = `<td class="align-middle fs-6">${category.value}</td>`;
-  col8.outerHTML = `<td class="align-middle"><span class="badge rounded-pill text-bg-secondary">On Queue</span></td>`;
+  col8.outerHTML = `<td class="align-middle"><span class="badge rounded-pill text-bg-warning">To Pack</span></td>`;
   col9.outerHTML = `<td class="align-middle text-center">
                       <button class="btn btn-info view-ticket" >view</button>
                       <button class="btn btn-warning edit-ticket" >Edit</button>
                       <button class="btn btn-danger delete-ticket" >Delete</button>
                     </td>`;
   
-  generateToast("text-bg-warning",`Ticket ${newOrderNo} added`);
+  generateToast("text-bg-primary",`Ticket ${neworderNo} added`);
 }
 
 
@@ -458,7 +467,7 @@ document.addEventListener('DOMContentLoaded', function() {
       confirmDelBtn.addEventListener("click", function(){
         myModal.hide();
         row.remove();        
-        generateToast("text-bg-danger",`Ticket <strong>${orderNo[0].textContent}</strong> DELETED`);
+        generateToast("text-bg-danger",`Order <strong>${orderNo[0].textContent}</strong> DELETED`);
       });
       
     });
@@ -518,7 +527,7 @@ document.addEventListener('DOMContentLoaded', function() {
                       </td>`;
     
     activeRow.remove();
-    generateToast("text-bg-success",`Ticket <strong>${orderNo[0].textContent}</strong> tag as COMPLETE`);
+    generateToast("text-bg-success",`Order <strong>${orderNo[0].textContent}</strong> tag as COMPLETED`);
   });
 
   // PROCESS TICKET BUTTON
@@ -547,7 +556,7 @@ document.addEventListener('DOMContentLoaded', function() {
     col5.outerHTML = columns[3].outerHTML;
     col6.outerHTML = columns[4].outerHTML;
     col7.outerHTML = columns[5].outerHTML;
-    col8.outerHTML = `<td class="align-middle"><span class="badge rounded-pill text-bg-warning">ongoing</span></td>`;
+    col8.outerHTML = `<td class="align-middle"><span class="badge rounded-pill text-bg-info">To Deliver</span></td>`;
     col9.outerHTML = `<td class="align-middle text-center">
                         <button class="btn btn-info view-ticket" >view</button>
                         <button class="btn btn-warning edit-ticket" >Edit</button>
@@ -555,7 +564,7 @@ document.addEventListener('DOMContentLoaded', function() {
                       </td>`;
     
     activeRow.remove();
-    generateToast("text-bg-warning",`Ticket ${orderNo[0].textContent} tag as <strong>ONGOING</strong>`);
+    generateToast("text-bg-info",`Order ${orderNo[0].textContent} tag as <strong>To Deliver</strong>`);
   });
 
   // SAVE TICKET BUTTON
@@ -567,18 +576,20 @@ document.addEventListener('DOMContentLoaded', function() {
     
     let category    = document.getElementById('category');
     let status      = document.getElementById('field-status');
-    let costumerName       = document.getElementById('c-name');
-    let orderDescription = document.getElementById('order-Ndescription');
-    let DateCreated = document.getElementById('date-created');
-    let targetDate  = document.getElementById('target-date');
-    let requestedBy = document.getElementById('requested-by');
+    let title       = document.getElementById('seller-name');
+    let description = document.getElementById('order-description');
+    let dateCreated = document.getElementById('date-created');
+    let targetDeliveryDate  = document.getElementById('target-date');
+    let costumerName = document.getElementById('costumer-name');
     let approvedBy  = document.getElementById('approved-by');
+    let department  = document.getElementById('order-type');
     
     columns[5].textContent = category.value;
-    columns[0].textContent = costumerName.value       
-    columns[3].textContent = DateCreated.value 
-    columns[4].textContent = targetDate.value  
-    columns[1].textContent = requestedBy.value 
+    columns[0].textContent = title.value       
+    columns[3].textContent = dateCreated.value 
+    columns[4].textContent = targetDeliveryDate.value  
+    columns[1].textContent = costumerName.value 
+    columns[2].textContent = department.value  
     
     generateToast("text-bg-success",`Ticket ${orderNo[0].textContent} updated`); 
   });
